@@ -1,10 +1,14 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: "gatsby-source-shopify",
+      options: {
+        shopName: "shop1-habibi",
+        accessToken: "5225afa1afaeae4e57839085b46f6a33",
+        apiVersion: "2020-10",
+        includeCollections: ["shop"],        
+      },
+    },
+  ]
 }
