@@ -1,6 +1,15 @@
 
 module.exports = {
-  plugins: [
+  plugins: [    
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: 'src/pages'
+      }
+    },
     {
       resolve: "gatsby-source-shopify",
       options: {
@@ -8,29 +17,6 @@ module.exports = {
         accessToken: "5225afa1afaeae4e57839085b46f6a33",
         apiVersion: "2020-10",
         includeCollections: ["shop"],        
-        shopifyQueries: {
-          products:`
-          query MyQuery {
-            allShopifyCollection {
-              nodes {
-                title
-                products {
-                  title
-                  tags
-                  images {
-                    originalSrc
-                  }
-                  description
-                  variants {
-                    price
-                  }
-                }
-              }
-            }
-          }
-          
-          `
-        }
       },
     },
   ]
