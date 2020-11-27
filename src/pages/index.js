@@ -113,7 +113,6 @@ const App = ({data}) => {
     setSearch(input)
   }
 
-  console.log(productsAll.filter(ele => console.log(ele)))
   useEffect(() => {
     const result = productsAll.filter(ele => ele.title.toLowerCase().indexOf(search.toLowerCase()) > 0)
     setResults(result)

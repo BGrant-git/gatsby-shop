@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 		display: 'flex'
 	},
 	mobileCard: {
-		borderRadius: 0,
+		
 		textAlign: 'center',
 	},
 	mobImg: {
@@ -59,26 +59,26 @@ const Product = ({ viewProduct, addToCart }) => {
 	const classes = useStyles()
 	const theme = useTheme()
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+	
 	return (	
 		<Grid container direction='column' className={classes.root} style={!isMobile ? {marginBottom: 200} : null}>
 			{
 				isMobile ? <>
 					<Grid item>
-						<Card className={classes.mobileCard}>
+						<Card square className={classes.mobileCard}>
 							<Typography
 								style={{padding: 15}}
 								variant='h4'
 								>
-									{viewProduct.name.toUpperCase()}
+									{viewProduct.title.toUpperCase()}
 							</Typography>
 							<CardMedia
 								className={classes.mobImg}
-								image={viewProduct.img}
+								image={viewProduct.images[0].originalSrc}
 								title='img'
 								/>
 							<Typography style={{padding: 15}} variant='body1'>{viewProduct.description}</Typography>
-							<Typography variant='h6'>£{viewProduct.price}</Typography>
+							<Typography variant='h6'>£{viewProduct.variants[0].price}</Typography>
 							<Typography style={{padding: 15}} variant='body2'>Tags: {viewProduct.tags}</Typography>
 							<CardActions className={classes.mobBtns}>
 								<Button 
@@ -104,12 +104,12 @@ const Product = ({ viewProduct, addToCart }) => {
 					<Card square>
 						<Grid item container direction='row'>
 							<Grid item sm={3}>
-								<img src={viewProduct.img} className={classes.deskImg} />
+								<img src={viewProduct.images[0].originalSrc} className={classes.deskImg} />
 							</Grid>
 							<Grid item sm={7} className={classes.type}>
-								<Typography variant='h5' className={classes.deskText}>{viewProduct.name.toUpperCase()}</Typography>
+								<Typography variant='h5' className={classes.deskText}>{viewProduct.title.toUpperCase()}</Typography>
 								<Typography variant='body2' className={classes.deskText}>{viewProduct.description}</Typography>
-								<Typography variant='h6' className={classes.deskText}>£{viewProduct.price}</Typography>
+								<Typography variant='h6' className={classes.deskText}>£{viewProduct.variants[0].price}</Typography>
 								<Typography variant='subtitle1'>Tags: {viewProduct.tags}</Typography>
 							</Grid>
 							<Grid item sm={2} className={classes.deskBtnsBox}>
