@@ -4,6 +4,7 @@ import { Typography, Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
 	root: {
+		
 	},
 	info: {
 		padding: 20
@@ -32,7 +33,7 @@ const CheckoutBox = ({ cart, cartPrice, clearCart }) => {
 				<Typography variant='subtitle1'>Total Items</Typography>
 				<Typography variant='h4'>{cart.length}</Typography>
 				<Typography variant='subtitle1'>Price</Typography>
-				<Typography variant='h4'>£{Math.round( cartPrice * 100 + Number.EPSILON ) / 100}</Typography>
+				<Typography variant='h4'>£{(Math.round(cartPrice*100)/100).toFixed(2)}</Typography>
 			</div>
 			<div className={classes.buttonsBox}>
 				<Button 

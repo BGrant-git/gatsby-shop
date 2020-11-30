@@ -1,5 +1,5 @@
-import { makeStyles, Typography, Button, Grid } from '@material-ui/core';
-import React, { useState } from 'react'
+import { makeStyles, Typography, Button, Grid, removeFromCart } from '@material-ui/core';
+import React from 'react'
 
 
 const useStyles = makeStyles({
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 		height: 120
 	},
 	info: {
-		padding: 5
+		padding: 10
 	},
 	qty: {
 
@@ -26,35 +26,25 @@ const useStyles = makeStyles({
 	},
 })
 
-const CartItem = ({ element, addToCart }) => {
+const CartItem = ({ element, addToCart, removeFromCart }) => {
 	const classes = useStyles()
-
-	const[quantity, setQuantity] = useState(1)
-
-	const incQuantity = () => {
-		setQuantity(quantity + 1)
-	}
 
 	return (
 			<Grid container 
 				className={classes.root} 
 				direction='row' 
-				alignItems='center'>
+				alignItems='center'
+				justify='space-between'>
 				<Grid item xs={12} sm={8} className={classes.infoContainer}>
-					<img src={element.img} className={classes.image} />
+					<img src={element.images[0].originalSrc} className={classes.image} />
 					<div className={classes.info}>
 						<Typography variant='h6' className={classes.title}>
-							{element.name}
+							{element.title}
 						</Typography>
 						<Typography>
-							£{element.price}
+							£{element.variants[0].price}
 						</Typography>
 					</div>
-				</Grid>
-				<Grid item xs={5} sm={2} className={classes.qty} direction='column'>
-					<Typography>
-						QTY: {quantity}
-					</Typography>
 				</Grid>
 				<Grid item xs={5} sm={2} direction='column'>
 					<Button 
@@ -64,7 +54,6 @@ const CartItem = ({ element, addToCart }) => {
 						className={classes.btns} 
 						onClick={() => {
 							addToCart(element)
-							incQuantity()
 						}}
 						>+</Button>
 					<Button 
@@ -72,6 +61,9 @@ const CartItem = ({ element, addToCart }) => {
 						color='secondary' 
 						disableElevation 
 						className={classes.btns} 
+						onClick={() => {
+							removeFromCart(element)
+						}}
 						>-</Button>
 				</Grid>
 			</Grid>

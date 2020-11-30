@@ -34,7 +34,9 @@ import {
 			backgroundColor: 'white'
 		},
 		title: {
-			paddingTop: 10
+			padding: '5px 0px',
+			backgroundColor: '#212121',
+			color: 'white'
 		},
 		info: {
 			display: 'flex',
@@ -53,7 +55,6 @@ const SuitsTablet = ({ productsSuits }) => {
 
 	let random = Math.floor((Math.random() * 4) + 1)
 	let tabletItems = productsSuits.slice(random,random+2)
-	console.log(tabletItems)
 
 	return (
 		<Grid container direction='row' >

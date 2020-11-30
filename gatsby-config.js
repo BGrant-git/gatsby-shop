@@ -1,5 +1,6 @@
 
 module.exports = {
+  pathPrefix: "/gatsby-shop",
   plugins: [    
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

@@ -5,6 +5,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts';
 import TrackVisibility from 'react-on-screen'
 import { graphql } from 'gatsby'
+import './app.css'
 
 import MenuAppBar from '../components/MenuAppBar'
 import Footer from '../components/Footer'
@@ -113,7 +114,6 @@ const App = ({data}) => {
     setSearch(input)
   }
 
-  console.log(productsAll.filter(ele => console.log(ele)))
   useEffect(() => {
     const result = productsAll.filter(ele => ele.title.toLowerCase().indexOf(search.toLowerCase()) > 0)
     setResults(result)
@@ -122,6 +122,11 @@ const App = ({data}) => {
   const addToCart = event => {
     setCartItems([...cartItems, event])
     ToastsStore.error("Item added")
+  }
+
+  const removeFromCart = event => {
+    let itemIndex = cartItems.indexOf(event)
+    setCartItems(cartItems.splice(itemIndex, 1))
   }
 
   const clearCart = () => {
@@ -133,8 +138,9 @@ const App = ({data}) => {
   useEffect(() => {
     if (cartItems.length > 0) {
       setCartPrice(cartItems
-        .map(items => items.price)
-        .reduce((acc, curr) => acc + curr))
+        .map(item => item.variants[0].price)
+        .map(item => parseFloat(item))       
+        .reduce((acc, curr) => acc + curr))      
     }
   }, [cartItems]);
 
@@ -181,29 +187,29 @@ const App = ({data}) => {
 
           <Route path='/mens' >
             <Grid item container>
-              <Grid item xs={false} sm={2} />
-                <Grid item xs={12} sm={8}>
+              <Grid item xs={false} sm={1} />
+                <Grid item xs={12} sm={10}>
                   <Mens 
                     productsMens={productsMens}
                     addToCart={addToCart}
                     getViewProduct={getViewProduct}
                     />
                 </Grid>
-                <Grid item xs={false} sm={2} />
+                <Grid item xs={false} sm={1} />
             </Grid>
           </Route>
 
           <Route path='/womens'>
             <Grid item container>
-              <Grid item xs={false} sm={2} />
-                <Grid item xs={12} sm={8}>
+              <Grid item xs={false} sm={1} />
+                <Grid item xs={12} sm={10}>
                   <Womens 
                     productsWomens={productsWomens}
                     addToCart={addToCart}
                     getViewProduct={getViewProduct}
                     />
                 </Grid>
-              <Grid item xs={false} sm={2} />
+              <Grid item xs={false} sm={1} />
             </Grid>
           </Route>  
 
@@ -226,6 +232,7 @@ const App = ({data}) => {
                     cartPrice={cartPrice}
                     clearCart={clearCart}
                     addToCart={addToCart}
+                    removeFromCart={removeFromCart}
                     />
                 </Grid>
               <Grid item xs={false} sm={2} />

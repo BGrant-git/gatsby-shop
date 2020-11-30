@@ -66,6 +66,16 @@ const useStyles = makeStyles({
 		backgroundSize: '100%',
 		color: 'white'
 	},
+	trendingCard: {
+		padding: '0px 0px 10px 0px',
+		margin: '7px 0px'
+	},
+	trendingTitle: {	
+		padding: 7,	
+		marginBottom: 10,
+		backgroundColor: '#212121',
+		color: 'white'
+	},
 	trendingImg: {
 		display: 'block',
 		marginLeft: 'auto',
@@ -174,9 +184,9 @@ const Home = ({ productsSuits={productsSuits}, getViewProduct }) => {
 
 			<Grid item container direction='row'>
 				<Grid item xs={12}>
-					<Card style={{padding:10,borderRadius:0,margin:'7px 0px'}}>
+					<Card square className={classes.trendingCard}>
 						<Typography
-							style={{marginBottom: 10}}
+							className={classes.trendingTitle}
 							variant='h5'
 							align='center'
 							>

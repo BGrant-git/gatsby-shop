@@ -14,7 +14,9 @@ const useStyles = makeStyles({
 		padding: 10
 	},
 	title: {
-		padding: '5px 0px 10px'
+		padding: '5px 0px 10px',
+		backgroundColor: '#212121',
+		color: 'white'
 	},
 	suitCard: {
 		height: 270,

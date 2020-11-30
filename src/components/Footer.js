@@ -80,7 +80,7 @@ const Footer = () => {
                   <Grid item container direction='row' style={{paddingBottom:10}}>
                     <EmailIcon />
                     <Typography style={{paddingLeft:10}}>company@email.com</Typography>
-                  </Grid>npm install -g gatsby-cli
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>

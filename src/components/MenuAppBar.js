@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
 		width: '50%',
 	},
 	btns: {
-		margin: '5px'
+		margin: '5px',
+		fontWeight: 'bold'
 	},
 	cartBtn: {		
 		color: 'white',
@@ -165,7 +166,7 @@ const MenuAppBar = ({ handleSearchChange, getAppBarSearch, numOfItems }) => {
 											Men's
 									</Button>   
 								</NavLink>  
-								<Typography variant="h4">
+								<Typography variant="h4" style={{fontWeight:'bold'}}>
 									<Link className={classes.link} to='/'>LOGO</Link>
 								</Typography>   
 								<NavLink className={classes.link} to='/womens'>

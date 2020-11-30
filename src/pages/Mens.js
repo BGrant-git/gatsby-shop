@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Button } from '@material-ui/core/'
+import { Grid } from '@material-ui/core/'
 
 import MensBanner from '../Components/MensBanner'
 import SortBy from '../Components/SortBy'

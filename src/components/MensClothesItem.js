@@ -54,7 +54,7 @@ const MensClothesItem = ({ element, addToCart, getViewProduct }) => {
               £{element.variants[0].price}
             </Typography>
             <Typography variant="body2" color="textPrimary" component="p">
-              Tags: {element.tags}
+              Tags:{`${element.tags}`}
             </Typography>
           </CardContent>
         </CardActionArea>

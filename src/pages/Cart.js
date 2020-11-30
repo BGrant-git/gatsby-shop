@@ -11,7 +11,7 @@ import CheckoutBox from '../Components/CheckoutBox'
 // the qty
 
 const useStyles = makeStyles({
-	daddy: {
+	root: {
 		backgroundColor: 'white'
 	},
 	title: {
@@ -20,12 +20,12 @@ const useStyles = makeStyles({
 	itemsList: {
 		marginBottom: 30,
 		width: '100%',
-		marginLeft: '3vw'
+		marginLeft: '3vw',
+		marginRight: -1
 	},
 	checkoutBox: {
 		border: '1px solid #DCDCDC',
 		marginBottom: 20,
-		marginLeft: '-1px',
 		minWidth: 150,
 		height: 300,
 		width: '100%'
@@ -36,13 +36,13 @@ const useStyles = makeStyles({
 	}
 })
 
-const Cart = ({ cart, cartPrice, clearCart, addToCart }) => {
+const Cart = ({ cart, cartPrice, clearCart, addToCart, removeFromCart }) => {
 	const classes = useStyles()
 
 	const[price, setPrice] = useState(0)
 
 	return (
-		<div className={classes.daddy}>
+		<div className={classes.root}>
 			<Grid container direction='row'>
 				<Grid item xs={12} className={classes.title}>
 					<Typography variant='h4' align='center'>
@@ -51,7 +51,7 @@ const Cart = ({ cart, cartPrice, clearCart, addToCart }) => {
 				</Grid>
 				<Grid item md={8} sm={12} className={classes.itemsList}>
 					{cart 
-					? cart.map((item, i) => <CartItem addToCart={addToCart} element={item} key={i} />)
+					? cart.map((item, i) => <CartItem addToCart={addToCart} element={item} removeFromCart={removeFromCart} key={i} />)
 					: <Typography variant='h5' className={classes.empty}>EMPTY!</Typography>}
 
 				</Grid>
