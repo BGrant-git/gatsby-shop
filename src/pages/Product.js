@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 		display: 'flex'
 	},
 	mobileCard: {
-		borderRadius: 0,
+		
 		textAlign: 'center',
 	},
 	mobImg: {
@@ -59,13 +59,13 @@ const Product = ({ viewProduct, addToCart }) => {
 	const classes = useStyles()
 	const theme = useTheme()
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+	
 	return (	
 		<Grid container direction='column' className={classes.root} style={!isMobile ? {marginBottom: 200} : null}>
 			{
 				isMobile ? <>
 					<Grid item>
-						<Card className={classes.mobileCard}>
+						<Card square className={classes.mobileCard}>
 							<Typography
 								style={{padding: 15}}
 								variant='h4'
