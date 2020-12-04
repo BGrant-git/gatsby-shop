@@ -84,8 +84,6 @@ const App = ({data}) => {
 
   const[input, setInput] = useState('')
   const[search, setSearch] = useState('')
-  // const[results, setResults] = useState([])
-  // const[viewProduct, setViewProduct] = useState('')
   const[cartPrice, setCartPrice] = useState('')
 
   function useStickyState(defaultValue, key) {

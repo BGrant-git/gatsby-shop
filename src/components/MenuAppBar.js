@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 		textDecoration: 'none',
 		"&.active": {
 			borderBottom: '3px solid #fff'
-		},
+		}
 	},
 	search: {
     position: 'relative',
@@ -82,6 +82,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 	menuIcon: {
 		marginLeft: -10
+	},
+	menuItem: {
+		fontWeight: 'bold',
+		marginTop: -10,
+		padding: 20
 	}
 }));
 
@@ -141,12 +146,12 @@ const MenuAppBar = ({ handleSearchChange, getAppBarSearch, numOfItems }) => {
 								onClose={handleClose}
 							  >
 								<NavLink className={classes.link} to='/mens'>
-									<MenuItem onClick={handleClose}>
+									<MenuItem className={classes.menuItem} onClick={handleClose}>
 										MEN'S
 									</MenuItem>
 								</NavLink>
 								<NavLink className={classes.link} to='/womens'>
-									<MenuItem onClick={handleClose}>
+									<MenuItem className={classes.menuItem} onClick={handleClose}>
 										WOMEN'S
 									</MenuItem>
 								</NavLink>

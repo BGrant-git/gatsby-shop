@@ -51,7 +51,7 @@ const SuitsMob = ({ productsSuits, getViewProduct }) => {
 					>
 						{productsSuits.map((item, i) => (
 							<div className={classes.cardContainer} key={i}>
-								<img className={classes.img} src={item.images[0].originalSrc} />
+								<img className={classes.img} src={item.images[0].originalSrc} alt="" />
 								<div className={classes.overlay}>
 									<Typography variant='h5'>NEW SUITS IN</Typography>									
 									<Typography variant='h4'>{item.title}</Typography>

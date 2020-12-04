@@ -79,7 +79,7 @@ const SuitsDesktop = ({ productsSuits }) => {
 							<Card square className={classes.suitCard}>
 								<Typography align='center' variant='h6' className={classes.cardTitle}>{item.title}</Typography>
 								<div className={classes.itemContainer}>
-									<img className={classes.cardImg} src={item.images[0].originalSrc} />
+									<img className={classes.cardImg} src={item.images[0].originalSrc} alt="" />
 									<div className={classes.info}>
 										<Typography>£{item.variants[0].price}</Typography>
 										<Button variant='contained' className={classes.cardBtn}>SHOP NOW</Button>
@@ -101,7 +101,7 @@ const SuitsDesktop = ({ productsSuits }) => {
 				showStatus={false}
 				>
 					{productsSuits.map((item, i) => (
-						<img className={classes.carousel}  key={i} src={item.images[0].originalSrc} />
+						<img className={classes.carousel}  key={i} src={item.images[0].originalSrc} alt="" />
 					))}
 				</Carousel>
 				</Card>

@@ -104,7 +104,7 @@ const Product = ({ viewProduct, addToCart }) => {
 					<Card square>
 						<Grid item container direction='row'>
 							<Grid item sm={3}>
-								<img src={viewProduct.images[0].originalSrc} className={classes.deskImg} />
+								<img src={viewProduct.images[0].originalSrc} alt="" className={classes.deskImg} />
 							</Grid>
 							<Grid item sm={7} className={classes.type}>
 								<Typography variant='h5' className={classes.deskText}>{viewProduct.title.toUpperCase()}</Typography>
