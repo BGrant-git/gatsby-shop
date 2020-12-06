@@ -138,7 +138,8 @@ const App = ({data}) => {
       setCartPrice(cartItems
         .map(item => item.variants[0].price)
         .map(item => parseFloat(item))       
-        .reduce((acc, curr) => acc + curr))      
+        .reduce((acc, curr) => acc + curr)
+      )      
     }
   }, [cartItems]);
 
