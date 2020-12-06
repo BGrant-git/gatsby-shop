@@ -36,7 +36,7 @@ const CartItem = ({ element, addToCart, removeFromCart }) => {
 				alignItems='center'
 				justify='space-between'>
 				<Grid item xs={12} sm={8} className={classes.infoContainer}>
-					<img src={element.images[0].originalSrc} className={classes.image} />
+					<img src={element.images[0].originalSrc} className={classes.image} alt="" />
 					<div className={classes.info}>
 						<Typography variant='h6' className={classes.title}>
 							{element.title}

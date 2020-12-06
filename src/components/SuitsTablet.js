@@ -73,7 +73,7 @@ const SuitsTablet = ({ productsSuits }) => {
 							
 						(<Grid item sm={12} md={6} key={i}>
 							<Card square className={classes.suitCard}>
-								<img className={classes.cardImg} src={item.images[0].originalSrc} />									
+								<img className={classes.cardImg} src={item.images[0].originalSrc} alt="" />									
 								<div className={classes.info}>
 									<Typography variant='h6' align='center' className={classes.cardTitle}>{item.title}</Typography>
 									<Typography align='center'>£{item.variants[0].price}</Typography>
@@ -97,7 +97,7 @@ const SuitsTablet = ({ productsSuits }) => {
 				showStatus={false}
 				>
 					{tabletItems.map((item, i) => (
-						<img key={i} src={item.images[0].originalSrc} />
+						<img key={i} src={item.images[0].originalSrc} alt="" />
 					))}
 				</Carousel>
 				</Card>

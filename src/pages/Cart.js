@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
 
 import CartItem from '../components/CartItem'
@@ -38,8 +38,6 @@ const useStyles = makeStyles({
 
 const Cart = ({ cart, cartPrice, clearCart, addToCart, removeFromCart }) => {
 	const classes = useStyles()
-
-	const[price, setPrice] = useState(0)
 
 	return (
 		<div className={classes.root}>
