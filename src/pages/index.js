@@ -123,8 +123,13 @@ const App = ({data}) => {
   }
 
   const removeFromCart = event => {
-    let itemIndex = cartItems.indexOf(event)
-    setCartItems(cartItems.splice(itemIndex, 1))
+    let hardCopy = [...cartItems]
+    hardCopy = hardCopy.filter(ele => ele.title !== event.title)
+    setCartItems(hardCopy)
+    if (cartItems.length === 1) {
+      setCartPrice(0)
+    }
+    ToastsStore.error("Item removed")
   }
 
   const clearCart = () => {

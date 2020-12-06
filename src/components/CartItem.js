@@ -1,4 +1,4 @@
-import { makeStyles, Typography, Button, Grid, removeFromCart } from '@material-ui/core';
+import { makeStyles, Typography, Button, Grid } from '@material-ui/core';
 import React from 'react'
 
 
@@ -18,15 +18,12 @@ const useStyles = makeStyles({
 	info: {
 		padding: 10
 	},
-	qty: {
-
-	},
 	btns: {
 		borderRadius: 0
 	},
 })
 
-const CartItem = ({ element, addToCart, removeFromCart }) => {
+const CartItem = ({ element, removeFromCart }) => {
 	const classes = useStyles()
 
 	return (
@@ -46,25 +43,17 @@ const CartItem = ({ element, addToCart, removeFromCart }) => {
 						</Typography>
 					</div>
 				</Grid>
-				<Grid item xs={5} sm={2} direction='column'>
+				<Grid item xs={5} sm={2} direction='column'>					
 					<Button 
 						variant='contained' 
-						color='primary' 
-						disableElevation 
-						className={classes.btns} 
-						onClick={() => {
-							addToCart(element)
-						}}
-						>+</Button>
-					<Button 
-						variant='contained' 
-						color='secondary' 
-						disableElevation 
+						size="small" 
+						color="primary" 
+						disableElevation
 						className={classes.btns} 
 						onClick={() => {
 							removeFromCart(element)
 						}}
-						>-</Button>
+						>remove</Button>
 				</Grid>
 			</Grid>
 	);

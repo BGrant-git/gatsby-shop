@@ -12,7 +12,8 @@ import CheckoutBox from '../Components/CheckoutBox'
 
 const useStyles = makeStyles({
 	root: {
-		backgroundColor: 'white'
+		backgroundColor: 'white',
+		
 	},
 	title: {
 		padding: 15,
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
 	itemsList: {
 		marginBottom: 30,
 		width: '100%',
-		marginLeft: '3vw',
+		// marginLeft: '3vw',
 		marginRight: -1
 	},
 	checkoutBox: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles({
 	},
 	empty: {
 		border: '1px solid #DCDCDC',
-		padding: 5
+		padding: '5px 20px'
 	}
 })
 
@@ -47,9 +48,17 @@ const Cart = ({ cart, cartPrice, clearCart, addToCart, removeFromCart }) => {
 						CART
 					</Typography>
 				</Grid>
+				<Grid item md={1} sm={false} style={{marginRight:-35}}></Grid>
 				<Grid item md={8} sm={12} className={classes.itemsList}>
-					{cart 
-					? cart.map((item, i) => <CartItem addToCart={addToCart} element={item} removeFromCart={removeFromCart} key={i} />)
+					{cart.length > 0 
+					? cart.map((item, i) => 
+							<CartItem 
+								addToCart={addToCart} 
+								element={item} 
+								removeFromCart={removeFromCart} 
+								key={i} 
+							/>
+						)
 					: <Typography variant='h5' className={classes.empty}>EMPTY!</Typography>}
 
 				</Grid>
