@@ -86,7 +86,7 @@ const App = ({data}) => {
   const[search, setSearch] = useState('')
   const[cartPrice, setCartPrice] = useState('')
 
-  var useStickyState = (defaultValue, key) => {
+  const useStickyState = (defaultValue, key) => {
     const [value, setValue] = useState(() => {
       const stickyValue = window.localStorage.getItem(key);
       return stickyValue !== null

@@ -31,7 +31,7 @@ const CheckoutBox = ({ cart, cartPrice, clearCart }) => {
 		<div className={classes.root}>
 			<div className={classes.info}>
 				<Typography variant='subtitle1'>Total Items</Typography>
-				<Typography variant='h4'>{cart.length}</Typography>
+				<Typography variant='h4'>{!!cart ? cart.length : null}</Typography>
 				<Typography variant='subtitle1'>Price</Typography>
 				<Typography variant='h4'>£{(Math.round(cartPrice*100)/100).toFixed(2)}</Typography>
 			</div>
