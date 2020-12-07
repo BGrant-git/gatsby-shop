@@ -35,14 +35,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 	cartBtn: {		
 		color: 'white',
-		textDecoration: 'none',
+		textDecoration: 'none'
 	},
 	link: {
 		color: 'inherit',
 		textDecoration: 'none',
 		"&.active": {
 			borderBottom: '3px solid #fff'
-		},
+		}
 	},
 	search: {
     position: 'relative',
@@ -82,6 +82,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 	menuIcon: {
 		marginLeft: -10
+	},
+	menuItem: {
+		fontWeight: 'bold',
+		marginTop: -10,
+		padding: 20
 	}
 }));
 
@@ -141,12 +146,12 @@ const MenuAppBar = ({ handleSearchChange, getAppBarSearch, numOfItems }) => {
 								onClose={handleClose}
 							  >
 								<NavLink className={classes.link} to='/mens'>
-									<MenuItem onClick={handleClose}>
+									<MenuItem className={classes.menuItem} onClick={handleClose}>
 										MEN'S
 									</MenuItem>
 								</NavLink>
 								<NavLink className={classes.link} to='/womens'>
-									<MenuItem onClick={handleClose}>
+									<MenuItem className={classes.menuItem} onClick={handleClose}>
 										WOMEN'S
 									</MenuItem>
 								</NavLink>
@@ -155,9 +160,16 @@ const MenuAppBar = ({ handleSearchChange, getAppBarSearch, numOfItems }) => {
 								<Link className={classes.link} to='/'>LOGO</Link>
 							</Typography>							
 						</Grid> 
-						: 				
+						: // mobile end ------------------------------			
 						<Grid container direction='row' >
-							<Grid item container direction='row' justify='center' sm={12} style={{marginLeft: 115}}>
+							<Grid 
+								item 
+								container 
+								direction='row' 
+								justify='center' 
+								sm={12} 
+								style={{marginLeft: 115}}
+							>
 								<NavLink className={classes.link} to='/mens'>
 									<Button 
 										className={classes.btns} 

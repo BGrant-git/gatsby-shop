@@ -84,11 +84,9 @@ const App = ({data}) => {
 
   const[input, setInput] = useState('')
   const[search, setSearch] = useState('')
-  // const[results, setResults] = useState([])
-  // const[viewProduct, setViewProduct] = useState('')
   const[cartPrice, setCartPrice] = useState('')
 
-  function useStickyState(defaultValue, key) {
+  const useStickyState = (defaultValue, key) => {
     const [value, setValue] = useState(() => {
       const stickyValue = window.localStorage.getItem(key);
       return stickyValue !== null
@@ -125,8 +123,13 @@ const App = ({data}) => {
   }
 
   const removeFromCart = event => {
-    let itemIndex = cartItems.indexOf(event)
-    setCartItems(cartItems.splice(itemIndex, 1))
+    let hardCopy = [...cartItems]
+    hardCopy = hardCopy.filter(ele => ele.title !== event.title)
+    setCartItems(hardCopy)
+    if (cartItems.length === 1) {
+      setCartPrice(0)
+    }
+    ToastsStore.error("Item removed")
   }
 
   const clearCart = () => {
@@ -140,21 +143,23 @@ const App = ({data}) => {
       setCartPrice(cartItems
         .map(item => item.variants[0].price)
         .map(item => parseFloat(item))       
-        .reduce((acc, curr) => acc + curr))      
+        .reduce((acc, curr) => acc + curr)
+      )      
     }
   }, [cartItems]);
 
   const getViewProduct = event => {
     setViewProduct(event)
   }
-
-	const scrollToTop = () => {
-		window.scroll({
-			top: 0,
-			left: 0,
-			behavior: 'smooth',
-		});
-	}
+  
+  const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
+	
   
   return (
     <ThemeProvider theme={theme}>
