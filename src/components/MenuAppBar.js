@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	cartBtn: {		
 		color: 'white',
-		textDecoration: 'none',
+		textDecoration: 'none'
 	},
 	link: {
 		color: 'inherit',
@@ -160,9 +160,16 @@ const MenuAppBar = ({ handleSearchChange, getAppBarSearch, numOfItems }) => {
 								<Link className={classes.link} to='/'>LOGO</Link>
 							</Typography>							
 						</Grid> 
-						: 				
+						: // mobile end ------------------------------			
 						<Grid container direction='row' >
-							<Grid item container direction='row' justify='center' sm={12} style={{marginLeft: 115}}>
+							<Grid 
+								item 
+								container 
+								direction='row' 
+								justify='center' 
+								sm={12} 
+								style={{marginLeft: 115}}
+							>
 								<NavLink className={classes.link} to='/mens'>
 									<Button 
 										className={classes.btns} 

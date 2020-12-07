@@ -6,10 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import CartItem from '../components/CartItem'
 import CheckoutBox from '../Components/CheckoutBox'
 
-// for qty could make a local state for qty in the item component then have
-// another one for the price it outputs which would be its original price times
-// the qty
-
 const useStyles = makeStyles({
 	root: {
 		backgroundColor: 'white',
