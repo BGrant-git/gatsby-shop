@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton, Zoom } from '@material-ui/core'
+import { IconButton, Grow, Zoom } from '@material-ui/core'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward'
 
 const ScrollToTop = ({ scrollToTop, isVisible }) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import { Popover, IconButton, InputBase } from '@material-ui/core'
+import { Typography, Popover, IconButton, InputBase } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   typography: {
