@@ -54,7 +54,6 @@ const useStyles = makeStyles({
 		border: '2px solid white',
 		color: 'white',
 		fontSize: 18,
-		fontWeight: 'bold',
 		'&:hover': {
 			backgroundColor: 'rgba(0, 0, 0, 0.3)'
 		}
@@ -89,7 +88,7 @@ const useStyles = makeStyles({
 
 })
 
-const Home = ({ productsSuits, getViewProduct }) => {
+const Home = ({ productsSuits={productsSuits}, getViewProduct }) => {
 
   const classes = useStyles()
   const theme = useTheme();
@@ -198,8 +197,8 @@ const Home = ({ productsSuits, getViewProduct }) => {
 									trendingItemsMob.map((item, i) => (
 										<Grid key={i} item xs={4}>		
 											<CardActionArea className={classes.trendingItem}>
-												<img className={classes.trendingImg} src={item[1].img} alt="" />
-												<Typography align='center' style={{fontWeight:'bold'}}>{item[1].name}</Typography>
+												<img className={classes.trendingImg} src={item[1].img} />
+												<Typography align='center'>{item[1].name}</Typography>
 											</CardActionArea>
 										</Grid>
 									))
@@ -207,7 +206,7 @@ const Home = ({ productsSuits, getViewProduct }) => {
 								Object.entries(trendingItems[0]).map((item, i) => (
 									<Grid key={i} item sm={2}>		
 										<CardActionArea className={classes.trendingItem}>
-											<img className={classes.trendingImg} src={item[1].img} alt="" />
+											<img className={classes.trendingImg} src={item[1].img} />
 											<Typography align='center'>{item[1].name}</Typography>
 										</CardActionArea>
 									</Grid>

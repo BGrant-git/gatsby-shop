@@ -1,3 +1,3 @@
-[submodule "gatsby-shop"]
-	path = gatsby-shop
-	url = https://github.com/BGrant-git/gatsby-shop.git
+# [submodule 'gatsby-shop']
+# 	path = gatsby-shop
+# 	url = git@github.com:BGrant-git/gatsby-shop.git

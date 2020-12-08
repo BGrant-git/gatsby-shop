@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 		display: 'flex'
 	},
 	mobileCard: {
-		
+		borderRadius: 0,
 		textAlign: 'center',
 	},
 	mobImg: {
@@ -59,13 +59,13 @@ const Product = ({ viewProduct, addToCart }) => {
 	const classes = useStyles()
 	const theme = useTheme()
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-	
+
 	return (	
 		<Grid container direction='column' className={classes.root} style={!isMobile ? {marginBottom: 200} : null}>
 			{
 				isMobile ? <>
 					<Grid item>
-						<Card square className={classes.mobileCard}>
+						<Card className={classes.mobileCard}>
 							<Typography
 								style={{padding: 15}}
 								variant='h4'
@@ -104,7 +104,7 @@ const Product = ({ viewProduct, addToCart }) => {
 					<Card square>
 						<Grid item container direction='row'>
 							<Grid item sm={3}>
-								<img src={viewProduct.images[0].originalSrc} alt="" className={classes.deskImg} />
+								<img src={viewProduct.images[0].originalSrc} className={classes.deskImg} />
 							</Grid>
 							<Grid item sm={7} className={classes.type}>
 								<Typography variant='h5' className={classes.deskText}>{viewProduct.title.toUpperCase()}</Typography>
