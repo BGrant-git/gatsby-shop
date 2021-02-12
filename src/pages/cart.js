@@ -37,41 +37,39 @@ const Cart = ({ cart, cartPrice, clearCart, addToCart, removeFromCart }) => {
   const classes = useStyles()
 
   return (
-    <Layout>
-      <div className={classes.root}>
-        <Grid container direction="row">
-          <Grid item xs={12} className={classes.title}>
-            <Typography variant="h4" align="center">
-              CART
-            </Typography>
-          </Grid>
-          <Grid item md={1} sm={false} style={{ marginRight: -35 }}></Grid>
-          <Grid item md={8} sm={12} className={classes.itemsList}>
-            {cart && cart.length > 0 ? (
-              cart.map((item, i) => (
-                <CartItem
-                  addToCart={addToCart}
-                  element={item}
-                  removeFromCart={removeFromCart}
-                  key={i}
-                />
-              ))
-            ) : (
-              <Typography variant="h5" className={classes.empty}>
-                EMPTY!
-              </Typography>
-            )}
-          </Grid>
-          <Grid item md={3} sm={12} className={classes.checkoutBox}>
-            <CheckoutBox
-              cart={cart}
-              cartPrice={cartPrice}
-              clearCart={clearCart}
-            />
-          </Grid>
+    <div className={classes.root}>
+      <Grid container direction="row">
+        <Grid item xs={12} className={classes.title}>
+          <Typography variant="h4" align="center">
+            CART
+          </Typography>
         </Grid>
-      </div>
-    </Layout>
+        <Grid item md={1} sm={false} style={{ marginRight: -35 }}></Grid>
+        <Grid item md={8} sm={12} className={classes.itemsList}>
+          {cart && cart.length > 0 ? (
+            cart.map((item, i) => (
+              <CartItem
+                addToCart={addToCart}
+                element={item}
+                removeFromCart={removeFromCart}
+                key={i}
+              />
+            ))
+          ) : (
+            <Typography variant="h5" className={classes.empty}>
+              EMPTY!
+            </Typography>
+          )}
+        </Grid>
+        <Grid item md={3} sm={12} className={classes.checkoutBox}>
+          <CheckoutBox
+            cart={cart}
+            cartPrice={cartPrice}
+            clearCart={clearCart}
+          />
+        </Grid>
+      </Grid>
+    </div>
   )
 }
 

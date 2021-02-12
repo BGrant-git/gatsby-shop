@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 
-import StoreContextProvider, { StoreContext } from "../context/context"
 import MenuAppBar from "../components/navbar-footer/MenuAppBar"
 import Footer from "../components/navbar-footer/Footer"
 
@@ -141,17 +140,15 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <StoreContextProvider>
-      <ThemeProvider theme={theme}>
-        <MenuAppBar
-          handleSearchChange={handleSearchChange}
-          getAppBarSearch={getAppBarSearch}
-          numOfItems={numOfItems}
-        />
-        {children}
-        <Footer />
-      </ThemeProvider>
-    </StoreContextProvider>
+    <ThemeProvider theme={theme}>
+      <MenuAppBar
+        handleSearchChange={handleSearchChange}
+        getAppBarSearch={getAppBarSearch}
+        numOfItems={numOfItems}
+      />
+      {children}
+      <Footer />
+    </ThemeProvider>
   )
 }
 

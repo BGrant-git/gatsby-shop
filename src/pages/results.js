@@ -36,53 +36,48 @@ const Results = ({ results, addToCart }) => {
   const classes = useStyles()
 
   return (
-    <Layout>
-      <Grid container>
-        <Grid item xs={false} sm={2} />
-        <Grid item xs={12} sm={8}>
-          {results && results.length < 1 ? (
-            <>
+    <Grid container>
+      <Grid item xs={false} sm={2} />
+      <Grid item xs={12} sm={8}>
+        {results && results.length < 1 ? (
+          <>
+            <Grid container>
+              <Grid item xs={12} className={classes.noResultsContainer}>
+                <Card className={classes.root}>
+                  <CardMedia
+                    className={classes.media}
+                    image="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/empty-closet-shelves-psycho-shadow.jpg"
+                    title="No Results"
+                  />
+                  <Typography
+                    className={classes.overlay}
+                    variant="h2"
+                    fontWeight="fontWeightBold"
+                  >
+                    OH NO! NOTHING FOUND.
+                  </Typography>
+                </Card>
+              </Grid>
+            </Grid>
+          </>
+        ) : (
+          <>
+            <Typography variant="body1">Search Results:</Typography>
+            <Grid container direction="column">
               <Grid container>
-                <Grid item xs={12} className={classes.noResultsContainer}>
-                  <Card className={classes.root}>
-                    <CardMedia
-                      className={classes.media}
-                      image="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/empty-closet-shelves-psycho-shadow.jpg"
-                      title="No Results"
-                    />
-                    <Typography
-                      className={classes.overlay}
-                      variant="h2"
-                      fontWeight="fontWeightBold"
-                    >
-                      OH NO! NOTHING FOUND.
-                    </Typography>
-                  </Card>
-                </Grid>
+                {results
+                  ? results.map((item, i) => (
+                      <Grid item md={4} sm={6} xs={12} key={i}>
+                        <DisplayResults element={item} addToCart={addToCart} />
+                      </Grid>
+                    ))
+                  : null}
               </Grid>
-            </>
-          ) : (
-            <>
-              <Typography variant="body1">Search Results:</Typography>
-              <Grid container direction="column">
-                <Grid container>
-                  {results
-                    ? results.map((item, i) => (
-                        <Grid item md={4} sm={6} xs={12} key={i}>
-                          <DisplayResults
-                            element={item}
-                            addToCart={addToCart}
-                          />
-                        </Grid>
-                      ))
-                    : null}
-                </Grid>
-              </Grid>
-            </>
-          )}
-        </Grid>
+            </Grid>
+          </>
+        )}
       </Grid>
-    </Layout>
+    </Grid>
   )
 }
 export default Results

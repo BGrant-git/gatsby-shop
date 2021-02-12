@@ -31,7 +31,7 @@ const StoreContextProvider = ({ children }) => {
     a,
     b
   ) {
-    return a.title.localeCompare(b.title)
+    return a.title.localeCompare(b.title) || []
   })
 
   const productsWomens = productsQuery[0][1].nodes[1].products.sort(function (
@@ -48,11 +48,12 @@ const StoreContextProvider = ({ children }) => {
   const [input, setInput] = useState("")
   const [search, setSearch] = useState("")
   const [cartPrice, setCartPrice] = useState("")
-  const [cartItems, setCartItems] = useState("")
+  const [cartItems, setCartItems] = useState([{ id: 1, name: "cart-item-1" }])
   const [results, setResults] = useState("")
   const [viewProduct, setViewProduct] = useState("")
   const [allProducts, setAllProducts] = useState(productsAll)
-  const [mensProducts, setMensProducts] = useState(productsMens)
+  // const [mensProducts, setMensProducts] = useState(productsMens)
+  const [mensProducts, setMensProducts] = useState([])
   const [womensProducts, setWomensProducts] = useState(productsWomens)
 
   return (

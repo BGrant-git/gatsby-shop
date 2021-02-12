@@ -7,26 +7,22 @@ import MensBanner from "../components/mens/MensBanner"
 import SortBy from "../components/SortBy"
 import MensComponent from "../components/mens/MensComponent"
 
-const Mens = () => {
-  return (
-    <Layout>
-      <Grid container>
-        <Grid item xs={false} sm={1} />
-        <Grid container item direction="column" xs={12} sm={10}>
-          <Grid item>
-            <MensBanner />
-          </Grid>
-          <Grid item>
-            <SortBy />
-          </Grid>
-          <Grid container>
-            <MensComponent />
-          </Grid>
-        </Grid>
-        <Grid item xs={false} sm={1} />
+const Mens = () => (
+  <Grid container>
+    <Grid item xs={false} sm={1} />
+    <Grid container item direction="column" xs={12} sm={10}>
+      <Grid item>
+        <MensBanner />
       </Grid>
-    </Layout>
-  )
-}
+      <Grid item>
+        <SortBy />
+      </Grid>
+      <Grid container>
+        <MensComponent />
+      </Grid>
+    </Grid>
+    <Grid item xs={false} sm={1} />
+  </Grid>
+)
 
 export default Mens
