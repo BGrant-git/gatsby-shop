@@ -43,9 +43,9 @@ const MensClothesItem = ({ element }) => {
 
   const onClickButtonHandler = () => {
     // TODO: update setting testItem into context
-    const testItem = { id: 1, name: "cart-item-1" }
+    const testItem = [{ id: 1, name: "cart-item-1" }]
 
-    setCartItemsValue([...cartItemsValue, testItem])
+    setCartItemsValue([...cartItemsValue, ...testItem])
   }
 
   return (
