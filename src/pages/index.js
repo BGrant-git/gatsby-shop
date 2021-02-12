@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 import TrackVisibility from "react-on-screen"
 import { graphql } from "gatsby"
+
 import "./app.css"
 
 import Layout from "../layout/layout"
@@ -161,28 +162,23 @@ const App = ({ data }) => {
   }
 
   return (
-    <Layout>
-      <Grid
-        container
-        direction="column"
-        style={{ maxWidth: 1300, margin: "auto" }}
-      >
-        <Grid item container>
-          <Grid item xs={false} sm={1} />
-          <Grid item xs={12} md={10}>
-            <Home
-              productsSuits={productsSuits}
-              getViewProduct={getViewProduct}
-            />
-          </Grid>
-          <Grid item xs={false} sm={1} />
+    <Grid
+      container
+      direction="column"
+      style={{ maxWidth: 1300, margin: "auto" }}
+    >
+      <Grid item container>
+        <Grid item xs={false} sm={1} />
+        <Grid item xs={12} md={10}>
+          <Home productsSuits={productsSuits} getViewProduct={getViewProduct} />
         </Grid>
-
-        <TrackVisibility>
-          <ScrollToTop scrollToTop={scrollToTop} />
-        </TrackVisibility>
+        <Grid item xs={false} sm={1} />
       </Grid>
-    </Layout>
+
+      <TrackVisibility>
+        <ScrollToTop scrollToTop={scrollToTop} />
+      </TrackVisibility>
+    </Grid>
   )
 }
 

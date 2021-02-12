@@ -8,23 +8,21 @@ import WomensComponent from "../components/womens/WomensComponent"
 
 const Womens = ({ addToCart, getViewProduct }) => {
   return (
-    <Layout>
-      <Grid container>
-        <Grid item xs={false} sm={1} />
-        <Grid container item direction="column" xs={12} sm={10}>
-          <Grid item>
-            <WomensBanner />
-          </Grid>
-          <Grid item>
-            <SortBy />
-          </Grid>
-          <Grid container>
-            <WomensComponent />
-          </Grid>
+    <Grid container>
+      <Grid item xs={false} sm={1} />
+      <Grid container item direction="column" xs={12} sm={10}>
+        <Grid item>
+          <WomensBanner />
         </Grid>
-        <Grid item xs={false} sm={1} />
+        <Grid item>
+          <SortBy />
+        </Grid>
+        <Grid container>
+          <WomensComponent />
+        </Grid>
       </Grid>
-    </Layout>
+      <Grid item xs={false} sm={1} />
+    </Grid>
   )
 }
 
