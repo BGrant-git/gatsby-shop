@@ -1,43 +1,38 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemText from "@material-ui/core/ListItemText"
+import MenuItem from "@material-ui/core/MenuItem"
+import Menu from "@material-ui/core/Menu"
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
     marginTop: 5,
-    backgroundColor: 'white'
+    backgroundColor: "white",
   },
-}));
+}))
 
-const options = [
-	'A-Z',
-  'Z-A',
-  'Price: High to Low',
-  'Price: Low to High',
-];
+const options = ["A-Z", "Z-A", "Price: High to Low", "Price: Low to High"]
 
 const SortBy = () => {
-  const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const classes = useStyles()
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [selectedIndex, setSelectedIndex] = React.useState(1)
 
-  const handleClickListItem = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const handleClickListItem = event => {
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
-    setAnchorEl(null);
-  };
+    setSelectedIndex(index)
+    setAnchorEl(null)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <div className={classes.root}>
@@ -63,14 +58,14 @@ const SortBy = () => {
           <MenuItem
             key={option}
             selected={index === selectedIndex}
-            onClick={(event) => handleMenuItemClick(event, index)}
+            onClick={event => handleMenuItemClick(event, index)}
           >
             {option}
           </MenuItem>
         ))}
       </Menu>
     </div>
-  );
+  )
 }
 
-export default SortBy 
+export default SortBy

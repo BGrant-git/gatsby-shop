@@ -1,15 +1,14 @@
-
 module.exports = {
   pathPrefix: "/gatsby-shop",
-  plugins: [    
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+  plugins: [
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'pages',
-        path: 'src/pages'
-      }
+        name: "pages",
+        path: "src/pages",
+      },
     },
     {
       resolve: "gatsby-source-shopify",
@@ -17,8 +16,14 @@ module.exports = {
         shopName: "shop1-habibi",
         accessToken: "5225afa1afaeae4e57839085b46f6a33",
         apiVersion: "2020-10",
-        includeCollections: ["shop"],        
+        includeCollections: ["shop"],
       },
     },
-  ]
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        pathToStylesProvider: `src/styles-provider-props`,
+      },
+    },
+  ],
 }
