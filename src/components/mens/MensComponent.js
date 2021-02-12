@@ -5,8 +5,7 @@ import { StoreContext } from "../../context/context"
 import MensClothesItem from "./MensClothesItem"
 
 const MensComponent = () => {
-  const { mensProducts } = useContext(StoreContext)
-  // const { mensProducts, viewProduct } = useState([])
+  const { mensProducts, viewProduct } = useContext(StoreContext)
 
   return (
     <>
@@ -17,7 +16,7 @@ const MensComponent = () => {
             <MensClothesItem
               element={item}
               // addToCart={addToCart}
-              // getViewProduct={viewProduct}
+              getViewProduct={viewProduct}
             />
           </Grid>
         ))}

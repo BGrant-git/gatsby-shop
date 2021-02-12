@@ -42,12 +42,11 @@ const MensClothesItem = ({ element }) => {
   console.log(cartItemsValue)
 
   const onClickButtonHandler = () => {
-    const newItem = { id: 2, name: "cart-item-2" }
+    // TODO: update setting testItem into context
+    const testItem = { id: 1, name: "cart-item-1" }
 
-    setCartItemsValue([...cartItemsValue, newItem])
+    setCartItemsValue([...cartItemsValue, testItem])
   }
-
-  console.log("---cartItemsValue:", cartItemsValue)
 
   return (
     <Card square className={classes.root}>

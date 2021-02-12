@@ -48,12 +48,11 @@ const StoreContextProvider = ({ children }) => {
   const [input, setInput] = useState("")
   const [search, setSearch] = useState("")
   const [cartPrice, setCartPrice] = useState("")
-  const [cartItems, setCartItems] = useState([{ id: 1, name: "cart-item-1" }])
+  const [cartItems, setCartItems] = useState([])
   const [results, setResults] = useState("")
   const [viewProduct, setViewProduct] = useState("")
   const [allProducts, setAllProducts] = useState(productsAll)
-  // const [mensProducts, setMensProducts] = useState(productsMens)
-  const [mensProducts, setMensProducts] = useState([])
+  const [mensProducts, setMensProducts] = useState(productsMens)
   const [womensProducts, setWomensProducts] = useState(productsWomens)
 
   return (
