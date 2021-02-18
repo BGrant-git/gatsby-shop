@@ -8,7 +8,6 @@ import Menu from "@material-ui/core/Menu"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
     marginTop: 5,
     backgroundColor: "white",
   },
@@ -25,7 +24,7 @@ const SortBy = () => {
     setAnchorEl(event.currentTarget)
   }
 
-  const handleMenuItemClick = (event, index) => {
+  const handleMenuItemClick = index => {
     setSelectedIndex(index)
     setAnchorEl(null)
   }

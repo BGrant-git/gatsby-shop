@@ -1,8 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { useState, useContext } from "react"
+import { Link, navigate } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import SearchIcon from "@material-ui/icons/Search"
 import { Popover, IconButton, InputBase } from "@material-ui/core"
+
+import { StoreContext } from "../../context/context"
 
 const useStyles = makeStyles(theme => ({
   typography: {
@@ -21,9 +23,14 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const MobileSearch = ({ handleSearchChange, getAppBarSearch, handleEnter }) => {
+const MobileSearch = () => {
   const classes = useStyles()
-  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [anchorEl, setAnchorEl] = useState(null)
+
+  const { input, search } = useContext(StoreContext)
+
+  const [inputValue, setInputValue] = input
+  const [searchValue, setSearchValue] = search
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget)
@@ -31,6 +38,20 @@ const MobileSearch = ({ handleSearchChange, getAppBarSearch, handleEnter }) => {
 
   const handleClose = () => {
     setAnchorEl(null)
+  }
+
+  const handleSearchChange = event => {
+    setInputValue(event.target.value)
+  }
+
+  const getAppBarSearch = () => {
+    setSearchValue(input)
+  }
+
+  const handleEnter = event => {
+    navigate("/results")
+    getAppBarSearch()
+    event.preventDefault()
   }
 
   const open = Boolean(anchorEl)
@@ -65,7 +86,7 @@ const MobileSearch = ({ handleSearchChange, getAppBarSearch, handleEnter }) => {
               <SearchIcon />
             </IconButton>
           </Link>
-          <InputBase onChange={handleSearchChange} />
+          <InputBase autoFocus onChange={handleSearchChange} />
         </form>
       </Popover>
     </div>
