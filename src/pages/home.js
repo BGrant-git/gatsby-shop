@@ -88,7 +88,7 @@ const useStyles = makeStyles({
   },
 })
 
-const Home = ({ productsSuits, getViewProduct }) => {
+const Home = ({ productsSuits }) => {
   const classes = useStyles()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"))
@@ -199,7 +199,7 @@ const Home = ({ productsSuits, getViewProduct }) => {
       </Grid>
 
       <Grid item container>
-        <Suits productsSuits={productsSuits} getViewProduct={getViewProduct} />
+        <Suits productsSuits={productsSuits} />
       </Grid>
 
       <Grid item container direction="row">

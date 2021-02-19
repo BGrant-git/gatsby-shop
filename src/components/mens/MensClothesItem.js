@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
@@ -35,17 +35,17 @@ const useStyles = makeStyles({
 const MensClothesItem = ({ element }) => {
   const classes = useStyles()
 
-  const { cartItems } = useContext(StoreContext)
+  const { cartItems, viewProduct } = useContext(StoreContext)
 
   const [cartItemsValue, setCartItemsValue] = cartItems
+  const [viewProductValue, setViewProductvalue] = viewProduct
 
-  console.log(cartItemsValue)
+  const cartButtonHandler = () => {
+    setCartItemsValue([...cartItemsValue, element])
+  }
 
-  const onClickButtonHandler = () => {
-    // TODO: update setting testItem into context
-    const testItem = [{ id: 1, name: "cart-item-1" }]
-
-    setCartItemsValue([...cartItemsValue, ...testItem])
+  const onProductButtonHandler = () => {
+    setViewProductvalue([element])
   }
 
   return (
@@ -53,9 +53,7 @@ const MensClothesItem = ({ element }) => {
       <Link
         to="/product"
         className={classes.link}
-        // onClick={() => {
-        //   getViewProduct(element)
-        // }}
+        onClick={() => onProductButtonHandler()}
       >
         <CardActionArea>
           <CardMedia
@@ -81,7 +79,7 @@ const MensClothesItem = ({ element }) => {
         <Button
           size="small"
           color="primary"
-          onClick={() => onClickButtonHandler()}
+          onClick={() => cartButtonHandler()}
           variant="contained"
         >
           add to cart

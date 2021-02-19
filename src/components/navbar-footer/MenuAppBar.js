@@ -1,5 +1,5 @@
-import React from "react"
-import { Link, navigate } from "gatsby"
+import React, { useContext } from "react"
+import { Link } from "gatsby"
 import { makeStyles, useTheme, fade } from "@material-ui/core/styles"
 import {
   Button,
@@ -16,6 +16,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 import MenuIcon from "@material-ui/icons/Menu"
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart"
 
+import { StoreContext } from "../../context/context"
 import MobileSearch from "./MobileSearch"
 
 const useStyles = makeStyles(theme => ({
@@ -91,12 +92,15 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const MenuAppBar = ({ handleSearchChange, getAppBarSearch, numOfItems }) => {
+const MenuAppBar = () => {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"))
+
+  const { cartItems } = useContext(StoreContext)
+  const [cartItemsValue, setCartItemsValue] = cartItems
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget)
@@ -104,12 +108,6 @@ const MenuAppBar = ({ handleSearchChange, getAppBarSearch, numOfItems }) => {
 
   const handleClose = () => {
     setAnchorEl(null)
-  }
-
-  const handleEnter = event => {
-    navigate("/results")
-    getAppBarSearch()
-    event.preventDefault()
   }
 
   return (
@@ -199,16 +197,12 @@ const MenuAppBar = ({ handleSearchChange, getAppBarSearch, numOfItems }) => {
           )}
 
           <IconButton>
-            <MobileSearch
-              handleSearchChange={handleSearchChange}
-              getAppBarSearch={getAppBarSearch}
-              handleEnter={handleEnter}
-            />
+            <MobileSearch />
           </IconButton>
           <Link to="/cart" className={classes.cartLink}>
             <IconButton aria-label="shopping cart">
               <Badge
-                badgeContent={numOfItems}
+                badgeContent={cartItemsValue.length}
                 color="secondary"
                 className={classes.badge}
               >

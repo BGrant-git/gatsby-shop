@@ -1,11 +1,13 @@
-import React from "react"
+import React, { useEffect, useState, useContext } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
 import Card from "@material-ui/core/Card"
 import CardMedia from "@material-ui/core/CardMedia"
 import Typography from "@material-ui/core/Typography"
+import TrackVisibility from "react-on-screen"
 
-import Layout from "../layout/layout"
+import ScrollToTop from "../components/ScrollToTop"
+import { StoreContext } from "../context/context"
 import DisplayResults from "../components/DisplayResults"
 
 const useStyles = makeStyles({
@@ -32,8 +34,31 @@ const useStyles = makeStyles({
   },
 })
 
-const Results = ({ results, addToCart }) => {
+const Results = () => {
   const classes = useStyles()
+
+  const [results, setResults] = useState([])
+  const { search, allProducts } = useContext(StoreContext)
+
+  const [searchValue, setSearchValue] = search
+  const [allProductsValue, setAllProductsValue] = allProducts
+
+  useEffect(() => {
+    if (searchValue) {
+      const result = allProductsValue.filter(
+        ele => ele.title.toLowerCase().indexOf(searchValue[0].toLowerCase()) > 0
+      )
+      setResults(result)
+    }
+  }, [])
+
+  const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    })
+  }
 
   return (
     <Grid container>
@@ -62,13 +87,15 @@ const Results = ({ results, addToCart }) => {
           </>
         ) : (
           <>
-            <Typography variant="body1">Search Results:</Typography>
+            <Typography variant="h5" style={{ marginTop: 40 }}>
+              Search Results:
+            </Typography>
             <Grid container direction="column">
               <Grid container>
                 {results
                   ? results.map((item, i) => (
                       <Grid item md={4} sm={6} xs={12} key={i}>
-                        <DisplayResults element={item} addToCart={addToCart} />
+                        <DisplayResults element={item} />
                       </Grid>
                     ))
                   : null}
@@ -77,6 +104,9 @@ const Results = ({ results, addToCart }) => {
           </>
         )}
       </Grid>
+      <TrackVisibility style={{ marginLeft: "90vw" }}>
+        <ScrollToTop scrollToTop={scrollToTop} />
+      </TrackVisibility>
     </Grid>
   )
 }

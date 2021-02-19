@@ -1,22 +1,13 @@
 import React from "react"
-import {
-  Typography,
-  Grid,
-  Card,
-  CardMedia,
-  Button,
-  CardActions,
-  useTheme,
-  makeStyles,
-} from "@material-ui/core"
+import { Grid, useTheme, makeStyles } from "@material-ui/core"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 
-import Layout from "../layout/layout"
 import ViewProductComponent from "../components/view-product/ViewProductComponent"
 
 const useStyles = makeStyles({
   root: {
     display: "flex",
+    marginTop: "35px",
   },
   mobileCard: {
     textAlign: "center",
@@ -53,7 +44,7 @@ const useStyles = makeStyles({
   },
 })
 
-const Product = ({ viewProduct, addToCart }) => {
+const Product = () => {
   const classes = useStyles()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))

@@ -42,18 +42,17 @@ const StoreContextProvider = ({ children }) => {
   })
 
   const productsAll = productsMens.concat(productsWomens)
-
   const productsSuits = productsQuery[0][1].nodes[2].products
 
   const [input, setInput] = useState("")
   const [search, setSearch] = useState("")
-  const [cartPrice, setCartPrice] = useState("")
+  const [cartPrice, setCartPrice] = useState(0)
   const [cartItems, setCartItems] = useState([])
-  const [results, setResults] = useState("")
-  const [viewProduct, setViewProduct] = useState("")
+  const [viewProduct, setViewProduct] = useState([])
   const [allProducts, setAllProducts] = useState(productsAll)
   const [mensProducts, setMensProducts] = useState(productsMens)
   const [womensProducts, setWomensProducts] = useState(productsWomens)
+  const [suits, setSuits] = useState(productsSuits)
 
   return (
     <StoreContext.Provider
@@ -62,11 +61,11 @@ const StoreContextProvider = ({ children }) => {
         search: [search, setSearch],
         cartPrice: [cartPrice, setCartPrice],
         cartItems: [cartItems, setCartItems],
-        results: [results, setResults],
         viewProduct: [viewProduct, setViewProduct],
         allProducts: [allProducts, setAllProducts],
         mensProducts: [mensProducts, setMensProducts],
         womensProducts: [womensProducts, setWomensProducts],
+        suits: [suits, setSuits],
       }}
     >
       {children}

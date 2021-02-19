@@ -60,40 +60,41 @@ const ViewProductComponent = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
 
-  const { viewProduct } = useContext(StoreContext)
+  const { cartItems, viewProduct } = useContext(StoreContext)
+  const [cartItemsValue, setCartItemsValue] = cartItems
 
-  console.log(viewProduct)
+  const cartButtonHandler = () => {
+    setCartItemsValue([...cartItemsValue, viewProduct])
+  }
+
+  const item = viewProduct[0][0]
 
   return (
     <>
-      {/* {isMobile ? (
+      {isMobile ? (
         <>
           <Grid item>
             <Card square className={classes.mobileCard}>
               <Typography style={{ padding: 15 }} variant="h4">
-                {viewProduct.title.toUpperCase()}
+                {item.title.toUpperCase()}
               </Typography>
               <CardMedia
                 className={classes.mobImg}
-                image={viewProduct.images[0].originalSrc}
+                image={item.images[0].originalSrc}
                 title="img"
               />
               <Typography style={{ padding: 15 }} variant="body1">
-                {viewProduct.description}
+                {item.description}
               </Typography>
-              <Typography variant="h6">
-                £{viewProduct.variants[0].price}
-              </Typography>
+              <Typography variant="h6">£{item.variants[0].price}</Typography>
               <Typography style={{ padding: 15 }} variant="body2">
-                Tags: {viewProduct.tags}
+                Tags: {item.tags}
               </Typography>
               <CardActions className={classes.mobBtns}>
                 <Button
                   size="small"
                   color="primary"
-                  // onClick={() => {
-                  //   addToCart(viewProduct)
-                  // }}
+                  onClick={() => cartButtonHandler()}
                   variant="contained"
                 >
                   <ShoppingCartIcon />
@@ -108,27 +109,27 @@ const ViewProductComponent = () => {
       ) : (
         <Card square className={classes.deskCard}>
           <Grid item container direction="row">
-            {viewProduct ? (
+            {item ? (
               <>
                 <Grid item sm={3}>
                   <img
-                    src={viewProduct.images[0].originalSrc}
+                    src={item.images[0].originalSrc}
                     alt=""
                     className={classes.deskImg}
                   />
                 </Grid>
                 <Grid item sm={7} className={classes.type}>
                   <Typography variant="h5" className={classes.deskText}>
-                    {viewProduct.title.toUpperCase()}
+                    {item.title.toUpperCase()}
                   </Typography>
                   <Typography variant="body2" className={classes.deskText}>
-                    {viewProduct.description}
+                    {item.description}
                   </Typography>
                   <Typography variant="h6" className={classes.deskText}>
-                    £{viewProduct.variants[0].price}
+                    £{item.variants[0].price}
                   </Typography>
                   <Typography variant="subtitle1">
-                    Tags: {viewProduct.tags}
+                    Tags: {item.tags.map(item => `${item}, `)}
                   </Typography>
                 </Grid>{" "}
               </>
@@ -156,7 +157,7 @@ const ViewProductComponent = () => {
             </Grid>
           </Grid>
         </Card>
-      )} */}
+      )}
     </>
   )
 }
