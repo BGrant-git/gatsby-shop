@@ -3,6 +3,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-material-ui",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -19,11 +20,15 @@ module.exports = {
         includeCollections: ["shop"],
       },
     },
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        pathToStylesProvider: `src/styles-provider-props`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-material-ui`,
+    //   options: {
+    //     disableAutoprefixing: false,
+    //     disableMinification: false,
+    //     stylesProvider: {
+    //       injectFirst: true,
+    //     },
+    //   },
+    // },
   ],
 }

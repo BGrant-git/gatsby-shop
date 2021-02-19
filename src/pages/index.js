@@ -8,37 +8,6 @@ import ScrollToTop from "../components/ScrollToTop"
 
 import Home from "./home"
 
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: {
-//       light: "#484848",
-//       main: "#212121",
-//       dark: "#000000",
-//       contrastText: "#fff",
-//     },
-//     secondary: {
-//       light: "#ff7961",
-//       main: "#f44336",
-//       dark: "#ba000d",
-//       contrastText: "#000",
-//     },
-//   },
-//   typography: {
-//     fontFamily: [
-//       "-apple-system",
-//       "BlinkMacSystemFont",
-//       '"Segoe UI"',
-//       "Roboto",
-//       '"Helvetica Neue"',
-//       "Arial",
-//       "sans-serif",
-//       '"Apple Color Emoji"',
-//       '"Segoe UI Emoji"',
-//       '"Segoe UI Symbol"',
-//     ].join(","),
-//   },
-// })
-
 const App = () => {
   const { suits } = useContext(StoreContext)
 
